@@ -1,0 +1,23 @@
+Introduction  
+This project implements a simple FastAPI‑based library API for Limkokwing University. The API provides endpoints to search for books, borrow and return them, and track overdue loans. It demonstrates asynchronous programming, type annotations, and concurrency handling, ensuring that multiple users can interact with the system simultaneously without data conflicts.
+
+API Design  
+Four endpoints were designed:
+
+GET /books — search books by title, author, or category.
+
+POST /borrow — borrow a book, update availability, and create a loan record.
+
+POST /return — return a book, mark loan closed, and compute fines if overdue.
+
+GET /loans/overdue — list overdue loans and fines.
+Each endpoint uses clear JSON inputs and outputs, modeled with Pydantic classes.
+
+Implementation  
+The API was implemented in Python using FastAPI. An in‑memory store holds books, users, and loans. Asynchronous endpoints (async def) allow concurrent requests, while an asyncio.Lock ensures safe updates to shared data. Type annotations improve readability and maintainability. The project includes a requirements.txt, .gitignore, README.md, and sample HTTP requests for testing. Running uvicorn main:app --reload launches the server locally.
+
+Reflection  
+APIs improve efficiency in university services by automating repetitive tasks and providing a standard interface for applications. In the library context, staff can quickly search, borrow, and return books without manual record‑keeping. Async endpoints reduce wait times by handling multiple requests concurrently. This assignment aligns with SDG 4: Quality Education, as it enhances access to learning resources through digital systems. Challenges included designing safe concurrency and structuring JSON responses consistently. If the library expanded, improvements would include persistent storage (e.g., PostgreSQL), authentication for secure access, and background tasks for overdue notifications.
+
+GitHub Setup  
+The project is prepared for open‑source hosting. Students must create a GitHub repository, push the code, and include the lecturer as collaborator. The repository should contain all source files, documentation, and configuration files.
